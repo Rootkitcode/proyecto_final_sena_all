@@ -1,0 +1,81 @@
+body{
+    width: 100%;
+    height: 100%;
+}
+.container_servicio{
+    display: flex;
+    margin: 0% 15% 4%;
+    flex-direction: column;
+}
+.servicios{
+    display: flex;
+    margin: 0% 10%;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin:auto;
+    
+}
+
+.servicios .Servicio{
+    width: 16rem;
+    height: 28rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 5px 5px rgba(90, 90, 90, 0.2);
+    font-size: 1rem;
+    overflow: hidden;
+    color: rgb(17, 75, 102);
+    text-align: center;
+    margin: 5% 1%;
+    transition: all 0.5s;
+    opacity: 100%;
+} 
+.servicios .Servicio:hover{
+    box-shadow: 0 0 5px 5px rgb(201, 201, 201);
+    width: 20rem;
+    height: 30rem ;
+}
+.styleCard{
+    font-size: 2em;
+    color: rgb(255, 255, 255);
+    font-size:larger;
+    display: flex;
+    flex-direction: column
+}
+
+.title{
+    font-size: 2rem;
+    margin-top: 100px;
+    display: inline-block;
+    position: relative;
+    color: rgb(239, 241, 243);
+}
+.title:after .title:before{
+    content:'';
+    position:absolute;
+    width: 120px;
+    height: 3px;
+    background-color: black;
+}
+.btn-buy{
+    display: flex; 
+    border: 1px solid #EFF0F0;
+    align-items: center;
+    justify-content: center;
+    width: 10em;
+    height: 2em;
+    color: rgb(0, 0, 0);
+    cursor:pointer;
+    transition: .3s ease all;
+    background-color:#173647;
+    margin-top: 10%;
+}
+.btn-buy:hover{
+    background-color: #ffffff ;
+}

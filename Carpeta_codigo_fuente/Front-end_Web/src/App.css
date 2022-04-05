@@ -1,0 +1,54 @@
+.App{
+  margin: 0%;
+  padding: 0%;
+  display: flex;
+  flex-direction: column;
+  background-color: #eff1f3;
+}
+.App-logo {
+  width: 15%;
+  height: 50%;
+}
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.barNavigation {
+  margin-left: 25px;
+  font-size: 9px;
+  font: caption;
+  text-align: center;
+  color: black;
+}
+.img{
+  margin: 5% 5%;
+}
+.container_inf{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.style_card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem 2rem 1rem ;
+  background-color:rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 4px 4px 0 0 rgb(17, 75, 102);
+  font-size: 1rem;
+  color: rgb(17, 75, 102);
+  margin: 1rem;
+  text-align: center;
+  flex-direction: column;
+}
+  .p{
+    border:nome;
+    text-align: justify;
+    margin: 0%;
+  }

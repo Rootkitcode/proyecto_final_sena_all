@@ -1,0 +1,35 @@
+footer{
+    height: 50%;
+    background-color: #173647 ;
+    -webkit-mask-image: url("../../../Images/background-footer.svg");
+    mask-image: url("../../../Images/background-footer.svg");
+    -webkit-mask-size: cover;
+    padding-top:3em;
+}
+.container_footer{
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3% 5% 0%;
+    margin: 0%;
+}
+.container_footer .servicios{
+    display: flex;
+    width: 25%;
+    text-align: justify;
+    flex-direction: column;
+    margin: 1%;
+}
+.box_copyrigh{
+    display: flex;
+    color: rgba(211, 214, 211, 0.667);
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+hr{
+    height: 100%;
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+}

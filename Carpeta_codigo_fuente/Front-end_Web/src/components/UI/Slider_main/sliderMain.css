@@ -1,0 +1,9 @@
+.carousel-item{
+    width: 100%;
+}
+.slider{
+    border-left: 0.5em solid #173647;
+    border-right: 0.5em solid #173647;
+    border-bottom: 1rem solid#173647;
+
+}

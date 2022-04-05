@@ -1,0 +1,77 @@
+.Acerca_de_nosotros{
+    margin: 2%;
+    
+}
+.responsabilidad{
+    display: flex;
+}
+.acerca_nosotros{
+    display: flex;
+}
+.Quienes-somos{
+    margin: 2%;
+}
+.Valores_corporativos{
+    display: flex;
+    margin: 1rem 2rem;
+    flex-direction: column
+}
+.mision_vision {
+    font-size: 2em;
+    position: relative;
+    margin: 1rem 0em;
+    padding: 1em 1em .25em 1em;
+    text-align: center;
+    color: #173647;
+}
+.mision_vision:after {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 240px;
+    height: 4px;
+    margin-left: -120px;
+    content: '';
+    background-color: #173647;
+}
+.container_m_v{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 10rem;
+}
+.x4{
+    width: 40rem;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 5px 5px rgba(17, 3, 95, 0.2);
+    font-size: 1rem;
+    overflow: hidden;
+    color: rgb(17, 75, 102);
+    text-align: center;
+    margin: 5% 1%;
+    transition: all 0.5s;
+    opacity: 100%;
+}
+.titulo_valores{
+    font-size: 2em;
+    position: relative;
+    margin: 1rem 0em;
+    padding: 1em 1em .25em 1em;
+    text-align: center;
+    color: #173647;
+}
+.titulo_valores::after{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 240px;
+    height: 4px;
+    margin-left: -120px;
+    content: '';
+    background-color: #173647;
+}

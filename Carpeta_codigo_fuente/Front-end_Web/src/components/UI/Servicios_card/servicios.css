@@ -1,0 +1,11 @@
+.hrCard{
+    height: 1px;
+    width: 100%;
+    color: black;
+    
+}
+.container_precio{
+    font-weight: 600;
+    margin: 2% 2%;
+    font-size: xxx-large;
+}

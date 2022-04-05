@@ -1,0 +1,28 @@
+.register {
+    border-radius: 6px;
+    padding: 5% 10%;
+    width: 100%;
+    margin: 10%;
+    transition-duration: 0.4s;
+}
+.register:hover {
+    background-color: #2d075e; 
+    color: white;
+}
+
+.login{
+    border-radius: 6px;
+    padding: 5% 10%;
+    width: 100%;
+    margin: 10%;
+    background-color: #2b035f;
+    color: white;
+}
+.login:hover {
+    background-color: white;
+    color: rgb(0, 0, 0);
+}
+.Login_register{
+    display:flex;
+    justify-content:center;
+}

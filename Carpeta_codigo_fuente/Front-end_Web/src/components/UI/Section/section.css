@@ -1,0 +1,15 @@
+.section{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.col-md-4{
+    display: flex;
+    text-align: justify;
+    flex-direction: column;
+    margin: 2rem 1rem;
+    width: 30%;
+}
+.col .h6{
+    text-align: center;
+}
