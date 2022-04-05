@@ -1,0 +1,27 @@
+.contend_token{
+    height: 100vh;
+    
+}
+.card_token{
+    display: flex;
+    justify-content: center;
+    width: 28rem;
+    height: 15rem;
+    /* border: 1px solid black; */
+    border-radius: 1rem;
+    margin-top: 2rem;
+    margin-right: 2rem;
+    box-shadow:  4px 5px 20px 0px #9b9d9e;
+    flex-direction: column;
+    align-items: center;
+}
+.contend-input-token{
+    display: flex;
+    flex-direction: column;
+}
+.input_token{
+    width: 18.2rem;
+}
+.button_generar{
+    height: 2rem;
+}
