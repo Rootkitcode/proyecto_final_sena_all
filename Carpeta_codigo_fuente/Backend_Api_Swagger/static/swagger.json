@@ -1,0 +1,1424 @@
+{
+"openapi": "3.0.0",
+"info": {
+    "description": "API MADS SMS",
+    "version": "1.0.0",
+    "title": "MADS SMS",
+    "contact": {
+        "email": "coaldar85@gmail.com"
+    },
+    "license": {
+        "name": "Darwin Tusarma, Monica Yiseth, Alexis Carreño, Santiago Diaz, MIT"
+    }
+},
+"servers": [
+    {
+        "url": "http://127.0.0.1:5000/",
+        "description": "Local server"
+        
+
+    }
+],
+"components": {
+    "securitySchemes": {
+        "bearerAuth": {
+            "type": "http",
+            "scheme": "bearer",
+            "bearerFormat": "JWT"
+        }
+    },
+    "security": [
+        {
+            "bearerAuth": []
+        }
+    ]
+},
+"schemes": [
+    "http",
+    "https"
+],
+"securityDefinitions": {
+    "bearerAuth": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+    }
+},
+
+"paths": {
+    "/add_userData":{
+        "post":{
+            "security": [
+                {
+                    "bearerAuth": []
+                }
+            ],
+            "tags": [
+                "User Data"
+            ],
+            "summary": "Add user data",
+            "description": "Add user data",
+            "operationId": "addUserData",
+            "consumes": [
+                "application/json"
+            ],
+            "produces": [
+                "application/json"
+            ],
+            "parameters": [
+                {
+                    "in": "body",
+                    "name": "add_userData",
+                    "description": "add User data to the database",
+                    "required": true,
+                    "schema": {
+                        "id": "#/definitions/add_userData",
+                    "example": {
+                        "name": "John",
+                        "email": "email@email.com",
+                        "mobile": "455554545",
+                        "username": "john",
+                        "password": "123456",
+                        "profile_photo_path": "phto.jpg",
+                        "country": "USA",
+                        "city": "New York",
+                        "postal_code": "12345",
+                        "address": "123 Street"
+                    }
+                }
+            }
+    
+            
+            ],
+            "responses": {
+                "200": {
+                    "description": "Successful operation",
+                    "id": "http://localhost:5000/add_userData"
+                },
+                "400": {
+                    "description": "Invalid input"
+                }, 
+                "403": {
+                    "description": "Forbidden"
+                }
+            }
+        }
+    },
+    "/auth/user":{
+        "post":{
+            "tags": [
+                "User Data"
+            ],
+            "summary": "Authenticate user",
+            "description": "Authenticate user",
+            "operationId": "authUser",
+            "consumes": [
+                "application/json"
+            ],
+            "produces": [
+                "application/json"
+            ],
+            "parameters": [
+                {
+                    "in": "body",
+                    "name": "auth_user",
+                    "description": "Authenticate user",
+                    "required": true,
+                    "schema": {
+                        "id": "#/definitions/auth_user",
+                    "example": {
+                        "email": "string",
+                        "password": "string"
+                    }
+                }
+            }
+    
+            
+            ],
+            "responses": {
+                "200": {
+                    "description": "Successful operation",
+                    "id": "http://localhost:5000/auth/user"
+                },
+                "400": {
+                    "description": "Invalid input"
+                }, 
+                "403": {
+                    "description": "Forbidden"
+                }
+            }
+        
+    }
+    },
+    "/users_data/{id}": {
+        "get": {
+            "security": [
+                {
+                    "bearerAuth": []
+                }
+            ],
+            "tags": [
+                "User Data"
+            ],
+            "summary": "Get user data",
+            "description": "Get user data",
+            "operationId": "getUserData",
+            "consumes": [
+                "application/json"
+            ],
+            "produces": [
+                "application/json"
+            ],
+            "parameters": [
+                {
+                    "in": "path",
+                    "name": "id",
+                    "description": "get user data",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int64",
+                        "id": "http://localhost:5000/users_data/{id}"
+                       
+                    }
+                }    
+            ],
+            "responses": {
+                "200": {
+                    "description": "Successful operation"
+                    }
+                },
+                "400": {
+                    "description": "Invalid input"
+                },
+                "403": {
+                    "description": "Forbidden"
+                }
+                
+            }
+
+           
+        },
+        
+
+        "/add_message":{
+            "post":{
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "tags": [
+                    "Message"
+                ],
+                "summary": "Add message",
+                "description": "Add new message",
+                "operationId": "addMessage",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "add_message",
+                        "description": "add message to the database",
+                        "required": true,
+                        "schema": {
+                            "id": "#/definitions/add_message",
+                            "example": {
+                                "mensaje": "string",
+                                "fecha": "date",
+                                "estado": "string"
+                            }
+                       
+                        },
+                        "example": {
+                            "mensaje": "Hello World",
+                            "fecha": "2020-05-05T00:00:00.000Z",
+                            "estado": "Enviado"
+                        }
+                        
+                    }
+        
+                
+                ],
+
+                
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "id": "http://localhost:5000/add_message"
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    }, 
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/add/clientes/empresa": {
+            "post":{
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "tags": [
+                    "Clientes Empresa"
+                ],
+                "summary": "Add clientes",
+                "description": "Add new clientes",
+                "operationId": "addClientes",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "add_clientes",
+                        "description": "add clientes to the database",
+                        "required": true,
+                        "schema": {
+                            "id": "#/definitions/add_clientes",
+                            "example": {
+                                "nombre": "string",
+                                "apellidos": "string",
+                                "numero_telefono": "string",
+                                "pais": "string",
+                                "ciudad": "string",
+                                "direccion":"string"
+
+                        }
+                    }
+                }
+        
+                
+            ],
+ 
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "id": "http://localhost:5000/add/clientes/empresa"
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    }, 
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        
+        "/update_messages/{id}" : {
+            "put": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "tags": [
+                    "Message"
+                ],
+                "summary": "Update message",
+                "description": "Update message",
+                "operationId": "updateMessage",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "update message",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "id": "http://localhost:5000/update_messages/{id}"
+                           
+                        }
+                    },
+                    {
+                        "in": "body",
+                        "name": "update_message",
+                        "description": "update message to the database",
+                        "required": true,
+                        "schema": {
+                            "id": "http://localhost:5000/update_messages/{id}",
+                            "example": {
+                                "mensaje": "string",
+                                "fecha": "date",
+                                "estado": "string"
+                            }
+                        }
+                    }
+        
+                
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "id": "http://localhost:5000/update_messages/{id}"
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    }, 
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+
+        "/clientes_empresa/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "tags": [
+                    "Clientes Empresa"
+                ],
+                "summary": "Get clientes empresa",
+                "description": "Get clientes empresa",
+                "operationId": "getClientesEmpresa",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "get clientes empresa",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "id": "http://localhost:5000/clientes_empresa/{id}"
+                           
+                        }
+                    }    
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                    
+                }
+
+            },
+           
+            "/prueba_sms/{document}":{
+                "get":{
+                    "security": [
+                        {
+                            "bearerAuth": []
+                        }
+                    ],
+                    "tags": [
+                        "prueba - sms"
+                    ],
+                    "summary": "Get prueba sms",
+                    "description": "Get prueba sms",
+                    "operationId": "getSms",
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "in": "path",
+                            "name": "document",
+                            "description": "get sms",
+                            "required": true,
+                            "schema": {
+                                "type": "integer",
+                                "format": "int64",
+                                "id": "http://localhost:5000/prueba_sms/{document}"
+                               
+                            }
+                        }    
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Successful operation"
+                            }
+                        },
+                        "400": {
+                            "description": "Invalid input"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        }
+                        
+                    }
+
+                },
+                
+                "/prueba_sms":{
+                    "post":{
+                        "security": [
+                            {
+                                "bearerAuth": []
+                            }
+                        ],
+                        "tags": [
+                            "prueba - sms"
+                        ],
+                        "summary": "Add prueba sms",
+                        "description": "Add prueba sms",
+                        "operationId": "addSms",
+                        "consumes": [
+                            "application/json"
+                        ],
+                        "produces": [
+                            "application/json"
+                        ],
+                        "parameters": [
+                            {
+                                "in": "body",
+                                "name": "add_sms",
+                                "description": "add sms to the database",
+                                "required": true,
+                                "schema": {
+                                    "id": "#/definitions/add_sms",
+                                    "example": {
+                                        "documento": "string",
+                                        "nombre": "string",
+                                        "telefono": "string",
+                                        "ciudad": "string"
+                                    }
+                                }
+                            }
+            
+                        
+                        ],
+                        "responses": {
+                            "200": {
+                                "description": "Successful operation",
+                                "id": "http://localhost:5000/add/prueba_sms"
+                            },
+                            "400": {
+                                "description": "Invalid input"
+                            }, 
+                            "403": {
+                                "description": "Forbidden"
+                            }
+                        }
+                    }
+                },
+                "/transactions/{id}": {
+                    "get": {
+                        "security": [
+                            {
+                                "bearerAuth": []
+                            }
+                        ],
+                        "tags": [
+                            "Transactions sms"
+                        ],
+                        "summary": "Get transactions sms",
+                        "description": "Get transactions sms of your acount",
+                        "operationId": "getTransactions",
+                        "consumes": [
+                            "application/json"
+                        ],
+                        "produces": [
+                            "application/json"
+                        ],
+                        "parameters": [
+                            {
+                                "in": "path",
+                                "name": "id",
+                                "description": "get transactions",
+                                "required": true,
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int64",
+                                    "id": "http://localhost:5000/transactions/{id}"
+                                   
+                                }
+                            }    
+                        ],
+                        "responses": {
+                            "200": {
+                                "description": "Successful operation"
+                                }
+                            },
+                            "400": {
+                                "description": "Invalid input"
+                            },
+                            "403": {
+                                "description": "Forbidden"
+                            }
+                            
+                        }
+    
+                    
+                },
+                "/token_api/{id}":{
+                    "get":{
+                        "security": [
+                            {
+                                "bearerAuth": []
+                            }
+                        ],
+                        "tags": [
+                            "token api"
+                        ],
+                        "summary": "Get token api",
+                        "description": "Get token api",
+                        "operationId": "getToken",
+                        "consumes": [
+                            "application/json"
+                        ],
+                        "produces": [
+                            "application/json"
+                        ],
+                        "parameters": [
+                            {
+                                "in": "path",
+                                "name": "id",
+                                "description": "get token",
+                                "required": true,
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int64",
+                                    "id": "http://localhost:5000/token_api/{id}"
+                                   
+                                }
+                            }    
+                        ],
+                        "responses": {
+                            "200": {
+                                "description": "Successful operation"
+                                }
+                            },
+                            "400": {
+                                "description": "Invalid input"
+                            },
+                            "403": {
+                                "description": "Forbidden"
+                            }
+                            
+                        }
+
+                    },
+                    "/support_tickets/{id}":{
+                        "get":{
+                            "security": [
+                                {
+                                    "bearerAuth": []
+                                }
+                            ],
+                            "tags": [
+                                "support - tickets"
+                            ],
+                            "summary": "Get support tickets",
+                            "description": "Get support tickets",
+                            "operationId": "getSupportTickets",
+                            "consumes": [
+                                "application/json"
+                            ],
+                            "produces": [
+                                "application/json"
+                            ],
+                            "parameters": [
+                                {
+                                    "in": "path",
+                                    "name": "id",
+                                    "description": "get support tickets",
+                                    "required": true,
+                                    "schema": {
+                                        "type": "integer",
+                                        "format": "int64",
+                                        "id": "http://localhost:5000/support_tickets/{id}"
+                                       
+                                    }
+                                }    
+                            ],
+                            "responses": {
+                                "200": {
+                                    "description": "Successful operation"
+                                    }
+                                },
+                                "400": {
+                                    "description": "Invalid input"
+                                },
+                                "403": {
+                                    "description": "Forbidden"
+                                }
+                                
+                            }
+
+                        },
+                        "/sms_logs/{id}":{
+                            "get":{
+                                "security": [
+                                    {
+                                        "bearerAuth": []
+                                    }
+                                ],
+                                "tags": [
+                                    "sms - logs"
+                                ],
+                                "summary": "Get sms logs",
+                                "description": "Get sms logs",
+                                "operationId": "getSmsLogs",
+                                "consumes": [
+                                    "application/json"
+                                ],
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "parameters": [
+                                    {
+                                        "in": "path",
+                                        "name": "id",
+                                        "description": "get sms logs",
+                                        "required": true,
+                                        "schema": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "id": "http://localhost:5000/sms_logs/{id}"
+                                           
+                                        }
+                                    }    
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "Successful operation"
+                                        }
+                                    },
+                                    "400": {
+                                        "description": "Invalid input"
+                                    },
+                                    "403": {
+                                        "description": "Forbidden"
+                                    }
+                                    
+                                }
+
+                        },
+                        "/registro_clientes_planes/{id}":{
+                            "get":{
+                                "security": [
+                                    {
+                                        "bearerAuth": []
+                                    }
+                                ],
+                                "tags": [
+                                    "registro - clientes - planes"
+                                ],
+                                "summary": "Get registro clientes planes",
+                                "description": "Get registro clientes planes",
+                                "operationId": "getRegistroClientesPlanes",
+                                "consumes": [
+                                    "application/json"
+                                ],
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "parameters": [
+                                    {
+                                        "in": "path",
+                                        "name": "id",
+                                        "description": "get registro clientes planes",
+                                        "required": true,
+                                        "schema": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "id": "http://localhost:5000/registro_clientes_planes/{id}"
+                                           
+                                        }
+                                    }    
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "Successful operation"
+                                        }
+                                    },
+                                    "400": {
+                                        "description": "Invalid input"
+                                    },
+                                    "403": {
+                                        "description": "Forbidden"
+                                    }
+                                    
+                                }
+
+                        },
+                        
+                        "/support_tickets":{
+                            "post":{
+                                "security": [
+                                    {
+                                        "bearerAuth": []
+                                    }
+                                ],
+                                "tags": [
+                                    "support - tickets"
+                                ],
+                                "summary": "Add support tickets",
+                                "description": "Add support tickets",
+                                "operationId": "addSupportTickets",
+                                "consumes": [
+                                    "application/json"
+                                ],
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "parameters": [
+                                    {
+                                        "in": "body",
+                                        "name": "add_support_tickets",
+                                        "description": "add support tickets to the database",
+                                        "required": true,
+                                        "schema": {
+                                            "id": "#/definitions/add_support_tickets",
+                                            "example": {
+                                                "ticket": "string",
+                                                "from_sms": "string",
+                                                "to_sms": "string",
+                                                "subject": "string",
+                                                "status": "string"
+                                            }
+                                        }
+                                    }
+                                
+                            
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "Successful operation",
+                                        "id": "http://localhost:5000/support_tickets"
+                                    },
+                                    "400": {
+                                        "description": "Invalid input"
+                                    }, 
+                                    "403": {
+                                        "description": "Forbidden"
+                                    }
+                                }
+                            }
+                        },
+                        "/support_messages":{
+                            "post":{
+                                "security": [
+                                    {
+                                        "bearerAuth": []
+                                    }
+                                ],
+                                "tags": [
+                                    "Support - Messages"
+                                ],
+                                "summary": "Post support messages",
+                                "description": "Post support messages",
+                                "operationId": "postSupportMessages",
+                                "consumes": [
+                                    "application/json"
+                                ],
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "parameters": [
+                                    {
+                                        "in": "body",
+                                        "name": "support_messages",
+                                        "description": "post support messages to the database",
+                                        "required": true,
+                                        "schema": {
+                                            "id": "#/definitions/support_messages",
+                                            "example": {
+                                                "support_ticket_id": "string",
+                                                "type_message": "string",
+                                                "message": "string"
+                                            }
+                                        }
+                                    }
+                                
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "Successful operation",
+                                        "id": "http://localhost:5000/support_messages"
+                                    },
+                                    "400": {
+                                        "description": "Invalid input"
+                                    }, 
+                                    "403": {
+                                        "description": "Forbidden"
+                                    }
+                                }
+                            }
+                        },
+                        "/registro_clientes_planes":{
+                            "post":{
+                                "security": [
+                                    {
+                                        "bearerAuth": []
+                                    }
+                                ],
+                                "tags": [
+                                    "registro - clientes - planes"
+                                ],
+                                "summary": "Post registro clientes planes",
+                                "description": "Post registro clientes planes",
+                                "operationId": "postRegistroClientesPlanes",
+                                "consumes": [
+                                    "application/json"
+                                ],
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "parameters": [
+                                    {
+                                        "in": "body",
+                                        "name": "body",
+                                        "description": "Post registro clientes planes",
+                                        "required": true,
+                                        "schema": {
+                                            "id": "#/definitions/add_support_tickets",
+                                            "example": {
+                                                "email": "string",
+                                                "nombre_empresa": "string",
+                                                "nit_empresa": "string",
+                                                "ciudad": "string",
+                                                "telefono": "string",
+                                                "representante": "string",
+                                                "planes_sms": "string",
+                                                "sms_1_alerta": "string",
+                                                "sms_2_alerta": "string"
+                                                }
+                                            }
+                                        } 
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "Successful operation"
+                                        }
+                                    },
+                                    "400": {
+                                        "description": "Invalid input"
+                                    },
+                                    "403": {
+                                        "description": "Forbidden"
+                                    }
+                                    
+                                }
+                            
+                        },
+
+
+        "/message/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "tags": [
+                    "Message"
+                ],
+                "summary": "Get message",
+                "description": "Get message",
+                "operationId": "getMessage",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "get message",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "id": "http://localhost:5000/message/{id}"
+                           
+                        }
+                    }    
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                    
+                }
+
+               
+            },
+            "/receptor_sms/{documento}": {
+                "get": {
+                    "security": [
+                        {
+                            "bearerAuth": []
+                        }
+                    ],
+                    "tags": [
+                        "Receptor SMS"
+                    ],
+                    "summary": "Get receptor SMS",
+                    "description": "Get receptor SMS",
+                    "operationId": "getReceptorSMS",
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "in": "path",
+                            "name": "documento",
+                            "description": "get receptor SMS",
+                            "required": true,
+                            "schema": {
+                                "type": "integer",
+                                "format": "int64",
+                                "id": "http://localhost:5000/receptor_sms/{documento}"
+                               
+                            }
+                        }    
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Successful operation"
+                            }
+                        },
+                        "400": {
+                            "description": "Invalid input"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        }
+                        
+                    }
+
+            },
+            "/numeros_telefonos/{id}":{
+                "get":{
+                    "security": [
+                        {
+                            "bearerAuth": []
+                        }
+                    ],
+                    "tags": [
+                        "Numeros Telefonos"
+                    ],
+                    "summary": "Get numeros telefonos",
+                    "description": "Get numeros telefonos",
+                    "operationId": "getNumerosTelefonos",
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "in": "path",
+                            "name": "id",
+                            "description": "get numeros telefonos",
+                            "required": true,
+                            "schema": {
+                                "type": "integer",
+                                "format": "int64",
+                                "id": "http://localhost:5000/numeros_telefonos/{id}"
+                               
+                            }
+                        }    
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Successful operation"
+                            }
+                        },
+                        "400": {
+                            "description": "Invalid input"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        }
+                        
+                    }
+                
+            },
+            "/delete/users_data/{id}":{
+                "delete":{
+                    "security": [
+                        {
+                            "bearerAuth": []
+                        }
+                    ],
+                    "tags": [
+                        "User Data"
+                    ],
+                    "summary": "Delete user data",
+                    "description": "Delete user data",
+                    "operationId": "deleteUserData",
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "produces": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "in": "path",
+                            "name": "id",
+                            "description": "delete user data",
+                            "required": true,
+                            "schema": {
+                                "type": "integer",
+                                "format": "int64",
+                                "id": "http://localhost:5000//delete/users_data/{id}"
+                               
+                            }
+                        }    
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Successful operation"
+                            }
+                        },
+                        "400": {
+                            "description": "Invalid input"
+                        },
+                        "403": {
+                            "description": "Forbidden"
+                        }
+                        
+                    }
+    
+                },
+                
+                "/update_clientes_empresa/{id}":{
+                    "put":{
+                        "security": [
+                            {
+                                "bearerAuth": []
+                            }
+                        ],
+                        "tags": [
+                            "Clientes Empresa"
+                        ],
+                        "summary": "Update clientes",
+                        "description": "Update clientes",
+                        "operationId": "updateClientes",
+                        "consumes": [
+                            "application/json"
+                        ],
+                        "produces": [
+                            "application/json"
+                        ],
+                        "parameters": [
+                            {
+                                "in": "path",
+                                "name": "id",
+                                "description": "update clientes",
+                                "required": true,
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int64",
+                                    "id": "http://localhost:5000/update_clientes_empresa/{id}"
+                                   
+                                }
+                            },
+                            {
+                                "in": "body",
+                                "name": "update_clientes",
+                                "description": "update clientes to the database",
+                                "required": true,
+                                "schema": {
+                                    "id": "#/definitions/update_clientes",
+                                    "example": {
+                                        "nombre": "John",
+                                        "apellidos": "",
+                                        "numero_telefono": "",
+                                        "pais": "",
+                                        "ciudad": "",
+                                        "direccion":""
+                                    }
+                                }
+                            }
+                
+                        
+                        ],
+                        "responses": {
+                            "200": {
+                                "description": "Successful operation",
+                                "id": "http://localhost:5000/update_clientes_empresa/{id}"
+                            },
+                            "400": {
+                                "description": "Invalid input"
+                            }, 
+                            "403": {
+                                "description": "Forbidden"
+                            }
+                        }
+                    }
+                },
+                "/delete/clientes_empresa/{id}": {
+                    "delete": {
+                        "security": [
+                            {
+                                "bearerAuth": []
+                            }
+                        ],
+                        "tags": [
+                            "Clientes Empresa"
+                        ],
+                        "summary": "Delete clientes empresa",
+                        "description": "Delete clientes empresa",
+                        "operationId": "deleteClientesEmpresa",
+                        "consumes": [
+                            "application/json"
+                        ],
+                        "produces": [
+                            "application/json"
+                        ],
+                        "parameters": [
+                            {
+                                "in": "path",
+                                "name": "id",
+                                "description": "delete clientes empresa",
+                                "required": true,
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int64",
+                                    "id": "http://localhost:5000/delete/clientes_empresa/{id}"
+                                   
+                                }
+                            }    
+                        ],
+                        "responses": {
+                            "200": {
+                                "description": "Successful operation"
+                                }
+                            },
+                            "400": {
+                                "description": "Invalid input"
+                            },
+                            "403": {
+                                "description": "Forbidden"
+                            }
+                            
+                        }
+    
+                    
+                },
+                "/support_messages/{id}":{
+                    "get":{
+                        "security": [
+                            {
+                                "bearerAuth": []
+                            }
+                        ],
+                        "tags": [
+                            "Support - Messages"
+                        ],
+                        "summary": "Get support messages",
+                        "description": "Get support messages",
+                        "operationId": "getSupportMessages",
+                        "consumes": [
+                            "application/json"
+                        ],
+                        "produces": [
+                            "application/json"
+                        ],
+                        "parameters": [
+                            {
+                                "in": "path",
+                                "name": "id",
+                                "description": "get support messages",
+                                "required": true,
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int64",
+                                    "id": "http://localhost:5000/support_messages/{id}"
+                                   
+                                }
+                            }    
+                        ],
+                        "responses": {
+                            "200": {
+                                "description": "Successful operation"
+                                }
+                            },
+                            "400": {
+                                "description": "Invalid input"
+                            },
+                            "403": {
+                                "description": "Forbidden"
+                            }
+                            
+                        }
+                    
+                },
+               
+                       
+
+    "default": {
+        "description": "unexpected error",
+        "schema": {
+            "type": "string"
+        }
+    },
+"tags":[
+    {
+        "name": "sms MADS",
+        "description": "SMS API PROYECTO FINAL SENA"
+    }
+],
+
+"components":{
+    "schemas":{
+        "api_key_mads_sms":{
+            "properties":{
+                "api_key":{
+                    "type":"string",
+                      "description":"API Key",
+                        "example":"vx67f6gs7687gcs87876fsfdgshs"
+                    
+                }
+            }
+    },
+    "sms":{
+        "type": "string",
+        "properties": {
+            "title": {
+                "type": "string",
+                "format": "Title of the SMS"
+            },
+            "email": {
+                "type": "string",
+                "format": "Email of the SMS"
+            },
+            "phone": {
+                "type": "string",
+                "format": "Phone of the SMS"
+            },
+            "message": {
+                "type": "string",
+                "format": "Message of the SMS"
+            },
+            "date": {
+                "type": "string",
+                "format": "Date of the SMS"
+            },
+            "time": {
+                "type": "string",
+                "format": "Time of the SMS"
+            },
+            "status": {
+                "type": "string",
+                "format": "Status of the SMS"
+            },
+            "key": {
+                "type": "string",
+                "format": "Key of the SMS"
+            }
+        }
+    },
+    "sms_logs":{
+        "type": "string",
+        "properties": {
+            "title": {
+                "type": "string",
+                "format": "logs of the SMS"
+            },
+            "number": {
+                "type": "string",
+                "format": "Number of the SMS"
+            },
+            "status": {
+                "type": "string",
+                "format": "Status of the SMS"
+            }
+        }
+    },
+
+    "tikets":{
+        "type": "string",
+        "properties": {
+            "title": {
+                "type": "string",
+                "format": "Title of the Tiket"
+            },
+            "email_from": {
+                "type": "string",
+                "format": "Email of the Tiket from "
+            },
+            "email_to": {
+                "type": "string",
+                "format": "Email of the Tiket to"
+            },
+            "message": {
+                "type": "string",
+                "format": "Message of the Tiket"
+            },
+            "date": {
+                "type": "string",
+                "format": "Date of the Tiket"
+            },
+            "time": {
+                "type": "string",
+                "format": "Time of the Tiket"
+            },
+            "status": {
+                "type": "string",
+                "format": "Status of the Tiket"
+            },
+            "key": {
+                "type": "string",
+                "format": "Key of the Tiket"
+            }
+        }
+    }
+}
+}
+}
+}
+
+
+
+
+
+
